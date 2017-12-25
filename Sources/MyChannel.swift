@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 open class MyChannel: Channel {
-    var relatedPlaylists: [String: String]
+    public var relatedPlaylists: [String: String]
     
     public required init(json: JSON) {
         self.relatedPlaylists = [:]
