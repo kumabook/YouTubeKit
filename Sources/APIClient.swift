@@ -33,14 +33,28 @@ public struct PaginatedResponse<T: JSONSerializable>: ResponseObjectSerializable
 
 open class APIClient {
     public static var shared = APIClient()
-    public static var API_KEY        = ""
-    public var API_KEY: String { return APIClient.API_KEY }
+    public var API_KEY: String = ""
+    public var accessToken: String? {
+        didSet { renewManager() }
+    }
     public var manager: Alamofire.SessionManager = Alamofire.SessionManager()
-    
+
+    func renewManager() {
+        let configuration = manager.session.configuration
+        var headers = configuration.httpAdditionalHeaders ?? [:]
+        if let token = accessToken {
+            headers["Authorization"] = "Bearer \(token)"
+        } else {
+            headers.removeValue(forKey: "Authorization")
+        }
+        configuration.httpAdditionalHeaders = headers
+        manager = Alamofire.SessionManager(configuration: configuration)
+    }
+
     public func fetch<T: Resource>(_ params: [String:String], completionHandler: @escaping (DataResponse<PaginatedResponse<T>>) -> Void) -> Request {
         var parameters: [String: AnyObject] = ["key": self.API_KEY as AnyObject,
-                                            "part": "snippet" as AnyObject,
-                                            "maxResults": 10 as AnyObject]
+                                              "part": "snippet" as AnyObject,
+                                        "maxResults": 10 as AnyObject]
         for k in params.keys {
             parameters[k] = params[k] as AnyObject?
         }
