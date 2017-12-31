@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum APIError: Error {
+public enum APIError: Error {
     case network(error: Error) // Capture any underlying Error from the URLSession API
     case dataSerialization(error: Error)
     case jsonSerialization(error: Error)
