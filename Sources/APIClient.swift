@@ -52,11 +52,13 @@ open class APIClient {
     }
 
     public func fetch<T: Resource>(_ params: [String:String], completionHandler: @escaping (DataResponse<PaginatedResponse<T>>) -> Void) -> Request {
-        var parameters: [String: AnyObject] = ["key": self.API_KEY as AnyObject,
-                                              "part": "snippet" as AnyObject,
-                                        "maxResults": 10 as AnyObject]
+        var parameters: [String: Any] = ["part": "snippet",
+                                         "maxResults": 10]
         for k in params.keys {
-            parameters[k] = params[k] as AnyObject?
+            parameters[k] = params[k]
+        }
+        if accessToken == nil {
+            parameters["key"] = API_KEY
         }
         return manager.request(T.url, method: .get, parameters: parameters, encoding:  URLEncoding.default)
             .validate(statusCode: 200..<300)
@@ -66,9 +68,12 @@ open class APIClient {
 
     public func fetchGuideCategories(regionCode: String, pageToken: String?, completionHandler: @escaping (DataResponse<PaginatedResponse<GuideCategory>>) -> Void) -> Request {
         let url = "https://www.googleapis.com/youtube/v3/guideCategories"
-        var params: [String : Any] = ["key": API_KEY, "part": "snippet", "maxResults": 10, "regionCode": regionCode]
+        var params: [String : Any] = ["part": "snippet", "maxResults": 10, "regionCode": regionCode]
         if let token = pageToken {
             params["pageToken"] = token
+        }
+        if accessToken == nil {
+            params["key"] = API_KEY
         }
         return manager.request(url, method: HTTPMethod.get, parameters: params, encoding:  URLEncoding.default)
                       .validate(statusCode: 200..<300)
@@ -102,17 +107,19 @@ open class APIClient {
     
     public func searchChannel(by query: String?, pageToken: String?, completionHandler: @escaping (DataResponse<PaginatedResponse<Channel>>) -> Void) -> Request {
         let url = "https://www.googleapis.com/youtube/v3/search"
-        var params: [String: Any] = ["key"        : API_KEY   as AnyObject,
-                                     "part"       : "snippet" as AnyObject,
-                                     "maxResults" : 10        as AnyObject,
-                                     "regionCode" : "JP"      as AnyObject,
-                                     "type"       : "channel" as AnyObject,
-                                     "channelType": "any"     as AnyObject]
+        var params: [String: Any] = ["part"       : "snippet",
+                                     "maxResults" : 10,
+                                     "regionCode" : "JP",
+                                     "type"       : "channel",
+                                     "channelType": "any"]
         if let token = pageToken {
-            params["pageToken"] = token as Any?
+            params["pageToken"] = token
         }
         if let q = query {
             params["q"] = q as Any?
+        }
+        if accessToken == nil {
+            params["key"] = API_KEY
         }
         return manager.request(url, method: .get, parameters: params, encoding:  URLEncoding.default)
             .validate(statusCode: 200..<300)
