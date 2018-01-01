@@ -64,6 +64,10 @@
 		6751D2C61E971296009D05CE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751D2C51E971296009D05CE /* APIError.swift */; };
 		6751D2C71E971296009D05CE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751D2C51E971296009D05CE /* APIError.swift */; };
 		6751D2C81E971296009D05CE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751D2C51E971296009D05CE /* APIError.swift */; };
+		678D62411FF9F50200CEC41C /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D62401FF9F50200CEC41C /* AccessTokenAdapter.swift */; };
+		678D62421FF9F51000CEC41C /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D62401FF9F50200CEC41C /* AccessTokenAdapter.swift */; };
+		678D62431FF9F51500CEC41C /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D62401FF9F50200CEC41C /* AccessTokenAdapter.swift */; };
+		678D62441FF9F51900CEC41C /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D62401FF9F50200CEC41C /* AccessTokenAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +125,7 @@
 		6751D2BD1E97107A009D05CE /* DataRequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataRequestExtension.swift; path = Sources/DataRequestExtension.swift; sourceTree = SOURCE_ROOT; };
 		6751D2C11E9711B9009D05CE /* PlaylistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistItem.swift; path = Sources/PlaylistItem.swift; sourceTree = SOURCE_ROOT; };
 		6751D2C51E971296009D05CE /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIError.swift; path = Sources/APIError.swift; sourceTree = SOURCE_ROOT; };
+		678D62401FF9F50200CEC41C /* AccessTokenAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenAdapter.swift; path = Sources/AccessTokenAdapter.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +223,7 @@
 				6751D2B41E96B807009D05CE /* Model */,
 				6736915D1E96389D003D5637 /* YouTubeKit.h */,
 				6751D2B51E96B85F009D05CE /* APIClient.swift */,
+				678D62401FF9F50200CEC41C /* AccessTokenAdapter.swift */,
 				6751D2BD1E97107A009D05CE /* DataRequestExtension.swift */,
 			);
 			name = Sources;
@@ -595,6 +601,7 @@
 				6751D29C1E96B5CD009D05CE /* ChannelResource.swift in Sources */,
 				6751D28C1E96B532009D05CE /* Subscription.swift in Sources */,
 				6751D2C21E9711B9009D05CE /* PlaylistItem.swift in Sources */,
+				678D62411FF9F50200CEC41C /* AccessTokenAdapter.swift in Sources */,
 				6751D2941E96B579009D05CE /* Channel.swift in Sources */,
 				6751D2B61E96B85F009D05CE /* APIClient.swift in Sources */,
 				6751D2981E96B5A7009D05CE /* GuideCategory.swift in Sources */,
@@ -618,6 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678D62441FF9F51900CEC41C /* AccessTokenAdapter.swift in Sources */,
 				6751D29D1E96B5CD009D05CE /* ChannelResource.swift in Sources */,
 				6751D28D1E96B532009D05CE /* Subscription.swift in Sources */,
 				6751D2C31E9711B9009D05CE /* PlaylistItem.swift in Sources */,
@@ -643,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678D62431FF9F51500CEC41C /* AccessTokenAdapter.swift in Sources */,
 				6751D29E1E96B5CD009D05CE /* ChannelResource.swift in Sources */,
 				6751D28E1E96B532009D05CE /* Subscription.swift in Sources */,
 				6751D2C41E9711B9009D05CE /* PlaylistItem.swift in Sources */,
@@ -668,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678D62421FF9F51000CEC41C /* AccessTokenAdapter.swift in Sources */,
 				673B94891E98EC53004F0C22 /* APIClient.swift in Sources */,
 				673B948A1E98EC53004F0C22 /* DataRequestExtension.swift in Sources */,
 				673B94801E98EC30004F0C22 /* GuideCategory.swift in Sources */,

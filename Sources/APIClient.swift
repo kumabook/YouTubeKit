@@ -35,20 +35,17 @@ open class APIClient {
     public static var shared = APIClient()
     public var API_KEY: String = ""
     public var accessToken: String? {
-        didSet { renewManager() }
+        didSet {
+            adapter?.accessToken = accessToken
+        }
     }
     public var manager: Alamofire.SessionManager = Alamofire.SessionManager()
+    public var adapter: AccessTokenAdapter? {
+        return manager.adapter as? AccessTokenAdapter
+    }
 
-    func renewManager() {
-        let configuration = manager.session.configuration
-        var headers = configuration.httpAdditionalHeaders ?? [:]
-        if let token = accessToken {
-            headers["Authorization"] = "Bearer \(token)"
-        } else {
-            headers.removeValue(forKey: "Authorization")
-        }
-        configuration.httpAdditionalHeaders = headers
-        manager = Alamofire.SessionManager(configuration: configuration)
+    init() {
+        manager.adapter = AccessTokenAdapter(accessToken: accessToken)
     }
 
     public func fetch<T: Resource>(_ params: [String:String], completionHandler: @escaping (DataResponse<PaginatedResponse<T>>) -> Void) -> Request {
