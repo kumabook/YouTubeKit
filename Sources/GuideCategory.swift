@@ -10,11 +10,11 @@ import Foundation
 import SwiftyJSON
 
 open class GuideCategory: Hashable, Equatable, JSONSerializable {
-    open let etag:      String
-    open let id:        String
-    open let kind:      String
-    open let channelId: String!
-    open let title:     String!
+    public let etag:      String
+    public let id:        String
+    public let kind:      String
+    public let channelId: String!
+    public let title:     String!
     open var hashValue: Int { return id.hashValue }
     
     public required init(json: JSON) {

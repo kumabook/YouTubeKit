@@ -10,15 +10,15 @@ import Foundation
 import SwiftyJSON
 
 open class ChannelResource: JSONSerializable {
-    open let etag:        String
-    open let id:          String
-    open let kind:        String
-    open let title:       String!
-    open let description: String!
-    open let publishedAt: String?
-    open let thumbnails: [String:String]
-    open let resourceId: [String:String]
-    open static func resourceId(_ snippet: [String: JSON]) -> [String:String] {
+    public let etag:        String
+    public let id:          String
+    public let kind:        String
+    public let title:       String!
+    public let description: String!
+    public let publishedAt: String?
+    public let thumbnails: [String:String]
+    public let resourceId: [String:String]
+    public static func resourceId(_ snippet: [String: JSON]) -> [String:String] {
         var resId: [String:String] = [:]
         if let r = snippet["resourceId"]?.dictionary {
             for key in r.keys {
@@ -27,7 +27,7 @@ open class ChannelResource: JSONSerializable {
         }
         return resId
     }
-    open static func thumbnails(_ snippet: [String: JSON]) -> [String:String] {
+    public static func thumbnails(_ snippet: [String: JSON]) -> [String:String] {
         var thumbs: [String:String] = [:]
         if let d = snippet["thumbnails"]?.dictionary {
             for k in d.keys {

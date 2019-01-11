@@ -12,24 +12,24 @@ import SwiftyJSON
 open class PlaylistItem: Resource, Hashable, Equatable, JSONSerializable {
     open class var url: String { return "https://www.googleapis.com/youtube/v3/playlistItems" }
     open class var params: [String:String] { return [:] }
-    open let etag:        String
-    open let id:          String
-    open let kind:        String
-    open let title:       String!
-    open let description: String!
-    open let publishedAt: String?
-    open let thumbnails: [String:String]
-    open let resourceId: [String:String]
+    public let etag:        String
+    public let id:          String
+    public let kind:        String
+    public let title:       String!
+    public let description: String!
+    public let publishedAt: String?
+    public let thumbnails: [String:String]
+    public let resourceId: [String:String]
     
-    open let position:      UInt
-    open let videoId:       String
-    open let startAt:       String?
-    open let endAt:         String?
-    open let note:          String?
-    open let privacyStatus: String?
+    public let position:      UInt
+    public let videoId:       String
+    public let startAt:       String?
+    public let endAt:         String?
+    public let note:          String?
+    public let privacyStatus: String?
     
-    open let channelId:     String
-    open let channelTitle:  String
+    public let channelId:     String
+    public let channelTitle:  String
     
     open var hashValue: Int { return id.hashValue }
     

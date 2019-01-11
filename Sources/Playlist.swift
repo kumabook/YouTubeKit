@@ -13,14 +13,14 @@ open class Playlist: Resource, Hashable, Equatable, JSONSerializable {
     open class var url: String { return "https://www.googleapis.com/youtube/v3/playlists" }
     open class var params: [String:String] { return ["mine": "true"] }
     open var hashValue: Int { return id.hashValue }
-    open let etag:        String
-    open let id:          String
-    open let kind:        String
-    open let title:       String!
-    open let description: String!
-    open let publishedAt: String?
-    open let thumbnails:  [String:String]
-    open let resourceId:  [String:String]
+    public let etag:        String
+    public let id:          String
+    public let kind:        String
+    public let title:       String!
+    public let description: String!
+    public let publishedAt: String?
+    public let thumbnails:  [String:String]
+    public let resourceId:  [String:String]
     
     public required init(json: JSON) {
         let snippet = json["snippet"].dictionaryValue
